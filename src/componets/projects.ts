@@ -1,0 +1,51 @@
+import image12 from "../assets/img12.svg";
+import image2 from "../assets/project2.jpg";
+import image3 from "../assets/project3.jpg";
+
+export const projects = [
+  {
+    id: 1,
+    Title: "A Simple GPA Calculater",
+    desc: "A simple GPA Calculator built with React and Tailwind CSS that lets users add courses, select grades, and see their overall GPA instantly.",
+    img: image12,
+    tags: ["React", "Tailwind CSS", "JavaScript"],
+    stars: 120,
+    demo: "pasindujeewan.github.io/gpa-calculator/",
+    source: "#",
+    like: false,
+    github: true,
+    label: "Demo",
+    category: "Web Development",
+    date: new Date("2023-05-01"),
+  },
+  {
+    id: 2,
+    Title: "Job finder Full web site Design",
+    desc: "A simple Job Finder UI designed in Figma with clean layouts, easy filters, and a modern job-listing interface.And that design is stil developing. ",
+    img: image2,
+    tags: ["React", "Tailwind CSS", "JavaScript"],
+    stars: 120,
+    demo: "#",
+    source: "#",
+    like: false,
+    github: true,
+    label: "Feature",
+    category: "Web Design",
+    date: new Date("2023-06-15"),
+  },
+  {
+    id: 3,
+    Title: "Missing People Finder",
+    desc: "A Missing People Finder app built with the MERN stack that lets users report, search, and track missing persons with a clean and responsive interface",
+    img: image3,
+    tags: ["React", "Tailwind CSS", "JavaScript"],
+    stars: 120,
+    demo: "https://missingmersonfinder.vercel.app/",
+    source: "https://missingmersonfinder.vercel.app/",
+    like: false,
+    github: true,
+    label: "Feature",
+    category: "Web Development",
+    date: new Date("2023-04-20"),
+  },
+];

@@ -11,7 +11,8 @@ import { FaWhatsapp } from "react-icons/fa";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { NavLink } from "react-router-dom";
-import { ProjectCard } from "../componets/projectcard";
+import { projects } from "../componets/projects";
+import ProjectCard from "../componets/projectcard";
 
 export function Home() {
   const services = [
@@ -137,9 +138,11 @@ export function Home() {
               further.
             </p>
             <div className="mt-4">
-              <button className="px-6 py-2 bg-[#4f46e5] rounded-2xl text-white hover:bg-[#6366f1] transition-colors dark:bg-indigo-700 dark:hover:bg-indigo-600">
-                See more
-              </button>
+              <NavLink to="/about">
+                <button className="px-6 py-2 bg-[#4f46e5] rounded-2xl text-white hover:bg-[#6366f1] transition-colors dark:bg-indigo-700 dark:hover:bg-indigo-600">
+                  See more
+                </button>
+              </NavLink>
             </div>
           </div>
           <img src={img4} alt="Home Image" />
@@ -155,6 +158,7 @@ export function Home() {
           />
           <div className="flex flex-col md:w-[55%]">
             <p className="text-[#fbbf24] text-[15px]">Let’s talk</p>
+
             <h1 className="md:text-5xl text-4xl text-white dark:text-yellow-400">
               Get In Touch
             </h1>
@@ -182,62 +186,105 @@ export function Home() {
 
               {isopen && (
                 <ul className="absolute right-0 left-0 mt-2 w-40 bg-white shadow-lg rounded-lg z-50 px-2 py-2 text-gray-800 dark:bg-gray-700 dark:text-gray-200">
-                  <li className="py-2">
-                    Via website <Mail className="inline-block ml-2" size={15} />
-                  </li>
-                  <li className="py-2">
-                    Via whatsapp
-                    <FaWhatsapp className="inline-block ml-2" size={15} />
-                  </li>
-                  <li className="py-2">
-                    Via Call <Phone className="inline-block ml-2" size={15} />
-                  </li>
+                  <NavLink to="/Contact">
+                    <li className="py-2">
+                      Via website{" "}
+                      <Mail className="inline-block ml-2" size={15} />
+                    </li>
+                  </NavLink>
+                  <a
+                    href="https://wa.me/94728756911"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-green-500"
+                  >
+                    <li className="py-2">
+                      Via whatsapp
+                      <FaWhatsapp className="inline-block ml-2" size={15} />
+                    </li>
+                  </a>
+                  <a href="tel:0728765911">
+                    <li className="py-2">
+                      Via Call <Phone className="inline-block ml-2" size={15} />
+                    </li>
+                  </a>
                 </ul>
               )}
             </div>
 
             <div className="md:flex gap-6 mt-6 flex-wrap hidden">
               <div className="flex flex-col gap-4 justify-around items-center bg-white rounded-lg py-4 px-5 h-50 w-42 dark:bg-gray-700 dark:text-gray-200">
-                <Mail size={30} />
-                <h1 className="text-[11px] sm:text-[11px]">
+                <Mail size={35} />
+                <h1 className="text-[12px] text-center sm:text-[11px]">
                   Contact via website
                 </h1>
-                <button className="px-4 py-2 bg-[#4f46e5] rounded-2xl text-white hover:bg-[#6366f1] transition-colors dark:bg-indigo-700 dark:hover:bg-indigo-600">
-                  contact me
-                </button>
+                <NavLink to="/Contact">
+                  <button
+                    className="px-4 py-2 bg-[#1F2937] rounded-2xl text-white 
+    transition-all duration-200 ease-in-out 
+    hover:bg-[#6366f1] hover:scale-105 hover:shadow-md 
+    dark:bg-indigo-700 dark:hover:bg-indigo-600"
+                  >
+                    contact me
+                  </button>
+                </NavLink>
               </div>
+
               <div className="flex flex-col gap-4 justify-around items-center bg-white rounded-lg py-4 px-5 h-50 w-42 dark:bg-gray-700 dark:text-gray-200">
-                <FaWhatsapp size={30} />
-                <h1 className="text-[11px] sm:text-[11px]">
+                <FaWhatsapp size={35} />
+                <h1 className="text-[11px] text-center sm:text-[11px]">
                   Contact via whatsapp
                 </h1>
-                <button className="px-4 py-2 bg-[#25D366] hover:bg-green-500 transitio rounded-2xl text-white transition-colors">
-                  contact me
-                </button>
+                <a
+                  href="https://wa.me/94728756911"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-green-500"
+                >
+                  <button
+                    className="px-4 py-2 bg-[#1F2937] rounded-2xl text-white 
+    transition-all duration-200 ease-in-out 
+    hover:bg-green-600 hover:scale-105 hover:shadow-md 
+    dark:bg-green-700 dark:hover:bg-green-600"
+                  >
+                    contact me
+                  </button>
+                </a>
               </div>
+
               <div className="flex flex-col gap-4 justify-around items-center bg-white rounded-lg py-4 px-5 h-50 w-42 dark:bg-gray-700 dark:text-gray-200">
-                <Phone size={30} />
-                <h1 className="text-[11px] sm:text-[11px]">Contact via call</h1>
-                <button className="px-4 py-2 bg-[#fbbf24] hover:bg-green-500 transitio rounded-2xl text-white transition-colors dark:bg-yellow-400 dark:text-gray-900">
-                  contact me
-                </button>
+                <Phone size={35} />
+                <h1 className="text-[11px] sm:text-[12px]">Contact via call</h1>
+                <a href="tel:0728765911">
+                  <button
+                    className="px-4 py-2 bg-[#1F2937] rounded-2xl text-white 
+    transition-all duration-200 ease-in-out 
+    hover:bg-yellow-500 hover:text-gray-900 
+    hover:scale-105 hover:shadow-md
+    dark:bg-yellow-400 dark:text-gray-900 dark:hover:bg-yellow-300"
+                  >
+                    contact me
+                  </button>
+                </a>
               </div>
             </div>
           </div>
         </div>
       </FadeInSection>
-      <div className="flex flex-col md:py-29 px-6 py-20">
+      <div className="flex flex-col items-center md:py-29 px-6 py-20">
         <div className="flex flex-col justify-center md:items-center">
           <h1 className="md:text-5xl text-4xl text-blak dark:text-yellow-400">
             Recent My Work
           </h1>
         </div>
-        <p className="text-[15px] sm:text-[16px] mt-3 text-gray-500 dark:text-gray-300 md:text-center">
+        <p className="text-[15px] text-center sm:text-[16px] mt-3 text-gray-500 dark:text-gray-300 md:text-center">
           A collection of my recent projects, showcasing my skills in web
           development, design, and problem-solving
         </p>
-        <div>
-          <ProjectCard />
+        <div className="flex md:flex-row gap-10 flex-col  md:px-50 py-5">
+          {projects.map((i) => (
+            <ProjectCard item={i} />
+          ))}
         </div>
       </div>
     </div>

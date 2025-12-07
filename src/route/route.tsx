@@ -5,6 +5,7 @@ import { Contact } from "../pages/Contact";
 import { Education } from "../pages/Education";
 import { Project } from "../pages/Project";
 import { About } from "../pages/About";
+import { projects } from "../componets/projects";
 
 export const Router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ export const Router = createBrowserRouter([
       },
       {
         path: "Project",
-        element: <Project />,
+        element: <Project projects={projects} />,
       },
       {
         path: "About",

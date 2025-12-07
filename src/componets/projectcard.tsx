@@ -1,42 +1,73 @@
-import image12 from "../assets/img12.svg";
-import image2 from "../assets/project2.jpg";
-export function ProjectCard() {
-  const projects = [
-    {
-      id: 1,
-      Title: "A Simple GPA Calculater",
-      desc: "A simple GPA Calculator built with React and Tailwind CSS that lets users add courses, select grades, and see their overall GPA instantly.",
-      img: image12,
-    },
-    {
-      id: 2,
-      Title: "Job finder Full web site",
-      desc: "A simple GPA Calculator built with React and Tailwind CSS that lets users add courses, select grades, and see their overall GPA instantly.",
-      img: image2,
-    },
-  ];
+import type { Project } from "../pages/Project";
+import { Rating } from "./rating";
 
+type ProjectCardProps = {
+  item: Project;
+};
+
+export default function ProjectCard({ item }: ProjectCardProps) {
   return (
-    <div className="flex flex-col md:flex-row  w-100% md:px-5 py-5 gap-[20px]  ">
-      {projects.map((item) => (
+    <div
+      className="flex flex-col border border-gray-300 dark:border-gray-700 
+      rounded-lg p-4 hover:shadow-xl transition-shadow 
+      bg-white/60 dark:bg-white/10 backdrop-blur-md
+      md:h-120 md:w-80 h-100 w-72"
+    >
+      <div className="w-full h-[60%] overflow-hidden rounded-md relative">
+        <img
+          src={item.img}
+          alt=""
+          className="w-full h-full object-cover absolute"
+        />
+
         <div
-          key={item.id}
-          className="bg-white  shadow-md flex flex-col px-2 py-2 rounded-2xl gap-2 md:h-120 md:w-[20%] justify-between  dark:bg-gray-800"
+          className="absolute top-2 right-2 bg-yellow-500 text-black 
+        dark:text-white px-2 py-1 rounded-md shadow"
         >
-          <img
-            src={item.img}
-            alt=""
-            className="rounded-2xl object-cover h-60"
-          />
-          <h1 className="text-[25px] dark:text-yellow-400">{item.Title}</h1>
-          <p className="text-[12px] dark:text-white ">{item.desc}</p>
-          <div className=" flex justify-end">
-            <button className=" px-3 py-2 bg-[#4f46e5] text-white rounded-2xl text-[14px] hover:cursor-pointer dark:bg-gray-700 dark:text-yellow-400">
-              See more
+          {item.category}
+        </div>
+      </div>
+
+      <div>
+        <h3 className="md:text-lg text-[15px] font-semibold mt-4 text-gray-900 dark:text-gray-100">
+          {item.Title}
+        </h3>
+        <p className="md:text-sm text-[9px] text-gray-600 dark:text-gray-400 mt-2">
+          {item.desc}
+        </p>
+      </div>
+
+      <div>
+        <div className="flex flex-wrap mt-4">
+          {item.tags.map((tag, index) => (
+            <span
+              key={index}
+              className="text-xs bg-gray-200 dark:bg-gray-700 
+              text-gray-800 dark:text-gray-200 
+              rounded-full px-2 py-1 mr-2 mb-2"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex mt-2 items-center">
+          <a href={item.demo}>
+            <button
+              className="bg-indigo-600 hover:bg-indigo-700 
+            dark:bg-indigo-500 dark:hover:bg-indigo-600 
+            md:px-6 px-2 md:text-sm text-[12px] py-1 rounded-full text-white 
+            transition-colors cursor-pointer"
+            >
+              Live Demo
             </button>
+          </a>
+
+          <div className="flex items-center ml-auto space-x-1">
+            <Rating stars={5} />
           </div>
         </div>
-      ))}
+      </div>
     </div>
   );
 }
